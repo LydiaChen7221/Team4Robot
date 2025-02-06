@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "robot.Main",
+      "projectName": "Hydrogen"
+    },
+    {
+      "type": "java",
+      "name": "FlexModule",
+      "request": "launch",
+      "mainClass": "robot.drive.FlexModule",
+      "projectName": "Hydrogen"
+    },
+    {
+      "type": "java",
+      "name": "TalonSwerveModule",
+      "request": "launch",
+      "mainClass": "robot.drive.TalonSwerveModule",
+      "projectName": "Hydrogen"
+    },
+    {
+      "type": "java",
+      "name": "FailureManagement",
+      "request": "launch",
+      "mainClass": "lib.FailureManagement",
+      "projectName": "Hydrogen"
+    },
+    {
+      "type": "wpilib",
+      "name": "WPILib Desktop Debug",
+      "request": "launch",
+      "desktop": true
+    },
+    {
+      "type": "wpilib",
+      "name": "WPILib roboRIO Debug",
+      "request": "launch",
+      "desktop": false
+    }
+  ]
+}
