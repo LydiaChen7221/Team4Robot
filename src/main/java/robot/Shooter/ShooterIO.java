@@ -1,5 +1,5 @@
 package robot.Shooter;
 
 public interface ShooterIO {
-    void setPower(double power);
+    public setVoltage(double voltage);
 }
