@@ -1,38 +1,27 @@
-package robot.subsystems;
+package robot.Drive;
 
-import edu.wpi.first.wpilibj.motorcontrol.PWMMotorController;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.revrobotics.CANSparkMax;
+import com. revrobotics. CANSparkLowLevel;
+import robot.Ports;
 
 public class Drive {
-    private final PWMMotorController leftFront = new PWMMotorController(robot.Ports.Motors.LEFT_FRONT);
-    private final PWMMotorController leftBack = new PWMMotorController(robot.Ports.Motors.LEFT_BACK);
-    private final PWMMotorController rightFront = new PWMMotorController(robot.Ports.Motors.RIGHT_FRONT);
-    private final PWMMotorController rightBack = new PWMMotorController(robot.Ports.Motors.RIGHT_BACK);
-
-    private final MotorControllerGroup leftMotors = new MotorControllerGroup(leftFront, leftBack);
-    private final MotorControllerGroup rightMotors = new MotorControllerGroup(rightFront, rightBack);
-    private final DifferentialDrive differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
-
+    private final CANSparkMax leftMotor;
+    private final CANSparkMax rightMotor;
     public Drive() {
-        rightMotors.setInverted(true); // Adjust if needed
-    }
+        leftMotor = new CANSparkMax (Ports.Motors.LEFT_DRIVE, CANSparkLowLevel.MotorType.kBrushless);
+        rightMotor = new CANSparkMax (Ports.Motors.RIGHT_DRIVE, CANSparkLowLevel.MotorType.kBrushless);
 
-    public void arcadeDrive(double speed, double rotation) {
-        differentialDrive.arcadeDrive(speed, rotation);
+        //invert a motor depending on electrical wriring
+        leftMotor.setInverted (false);
+        rightMotor.setInverted(true);
     }
-
-    public void tankDrive(double leftSpeed, double rightSpeed) {
-        differentialDrive.tankDrive(leftSpeed, rightSpeed);
+    
+    private void tankDrive(double leftSpeed, double rightSpeed) {
+        leftMotor.set(leftSpeed);
+        rightMotor.set(rightSpeed);
     }
-
-    public void stop() {
-        differentialDrive.stopMotor();
-    }
-
-    public void setMaxOutput(double maxOutput) {
-        differentialDrive.setMaxOutput(maxOutput);
+    public void stop(){
+        leftMotor.stopMotor();
+        rightMotor.stopMotor();
     }
 }
-
-
