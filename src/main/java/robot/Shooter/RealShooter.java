@@ -2,19 +2,20 @@ package robot.Shooter;
 
 import static robot.Ports.Shooter.BOTTOM_MOTOR;
 import static robot.Ports.Shooter.TOP_MOTOR;
-import static robot.Ports.Shooter.ShooterConstants;
 import robot.Constants;
 import robot.Ports;
 import robot.Robot;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.Command;
+import com.revrobotics.CANSparkMax;
+
 
 public class RealShooter implements ShooterIO {
-    private final PIDController topMotor;
-    private final PIDController bottomMotor;
+    private final CANSparkMax topMotor;
+    private final CANSparkMax bottomMotor;
 
-    public RealShooter(PIDController topMotor, PIDController bottomMotor) {
+    public RealShooter(CANSparkMax topMotor, CANSparkMax bottomMotor) {
         this.topMotor = topMotor;
         this.bottomMotor = bottomMotor;
     }

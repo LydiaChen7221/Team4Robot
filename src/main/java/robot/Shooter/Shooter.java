@@ -2,7 +2,6 @@ package robot.Shooter;
 
 import static robot.Ports.Shooter.BOTTOM_MOTOR;
 import static robot.Ports.Shooter.TOP_MOTOR;
-import static robot.Ports.Shooter.ShooterConstants;
 import robot.Constants;
 import robot.Ports;
 import robot.Robot;
